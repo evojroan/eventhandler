@@ -1,0 +1,11 @@
+.parent {
+  background-color: #c5c5c5;
+  padding: 1%;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.kids {
+  display: flex;
+  justify-content: space-evenly;
+}

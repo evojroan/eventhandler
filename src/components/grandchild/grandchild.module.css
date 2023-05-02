@@ -1,0 +1,11 @@
+.grandchild {
+  background-color: #808080;
+  padding: 1%;
+  border-radius: 25px;
+  text-align: center;
+  justify-content: center;
+}
+
+.input {
+  width: 50%;
+}
