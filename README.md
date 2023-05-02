@@ -1,70 +1,17 @@
-# Getting Started with Create React App
+# 這是什麼？
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+本專案解說並示範 React 中的事件處理器如何以 prop 的方式從父元件傳到子元件，子元件執行該事件處理器，使父元件得以取得子元件的資料。
 
-## Available Scripts
+# 父元件如何取得子元件的資料？
 
-In the project directory, you can run:
+Parent 元件首先傳遞 prop 一路從 Child 元件再到 Grandchild 元件。流程說明如下：
 
-### `npm start`
+1.  Parent 元件傳遞名為 "propToChild" 的 prop 給 Child 元件。propToChild 就是事件處理器 parentHandler。
+2.  Child 元件傳遞名為 "propToGrandChild" 的 prop 給 Grandchild 元件。propToGrandChild 就是事件處理器 childHandler，並含有 propToChild，也就是 callback function。
+3.  Grandchild 元件輸入數字、執行事件處理器 grandChildHandler 時，也同時執行了 propToGrandChild(value)。
+4.  被執行過的 propToGrandChild 取得了輸入的數字 value，也執行了 propToChild(value)，所以 propToChild 也取得了數字 value。
+5.  因為 propToChild 就是 parentHandler，所以執行 parentHandler(value) 就能讓 Parent 元件得到數字 value。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# 詳細圖文說明
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://tinyurl.com/4at4c2f6
